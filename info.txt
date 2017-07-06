@@ -1,0 +1,29 @@
+info.txt
+
+Create automation framework
+
+Resource:
+- http://computer-database.herokuapp.com/computers
+
+Cover next functionality:
+- Add computer
+- Update computer
+- Delete computer
+- Check “filter by computer”
+
+Use following tools:
+- Npm​ as the package manager for JavaScript
+- Protractor (latest)​ as end-to-end test framework
+- Cucumberjs (1.x)​ as tool for running automated tests
+- Github​ or bitbucket​ share your Git repositories
+- Use page object pattern
+
+As plus (not mandatory):
+- Create more automation to cover move functionality (~9 more test cases)
+- Create reporting using Allure
+- Use generator or async\await function
+- Use air-bnb JS code style
+
+Note:
+- You can use ES6 to create automation
+- Web site for automation is not angularjs app

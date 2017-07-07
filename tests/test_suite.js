@@ -1,3 +1,5 @@
+// JASMINE VERSION
+
 var utils = require('../utils.js');
 var mainPage = require('../pages/mainPage.js');
 
@@ -8,14 +10,9 @@ describe('Test Suite for Computer database site', function() {
 		browser.get(utils.url);
     });
 
-	// function filterComputer(name){
-	// 	element(by.id('searchbox')).sendKeys(name);
-	// 	element(by.id('searchsubmit')).click();
-	// }
-
 	it('should be possible to add computer', function() {
-		var pcNameOne = 'AAAAA my pc create';
-		var alertMsgTxt = 'Done! Computer ' + pcNameOne 
+		const pcNameOne = 'AAAAA my pc for create';
+		const alertMsgTxt = 'Done! Computer ' + pcNameOne 
 			+ ' has been created';
 
 		mainPage.createComputer(pcNameOne, 'Sony');
@@ -27,8 +24,8 @@ describe('Test Suite for Computer database site', function() {
 	});
 
 	it('should be possible to update computer', function() {
-		var pcNameTwo = 'AAAAA my pc for update';
-		var pcNameTwoEdited = pcNameTwo + " Edited";
+		const pcNameTwo = 'AAAAA my pc for update';
+		const pcNameTwoEdited = pcNameTwo + " Edited";
 
 		mainPage.createComputer(pcNameTwo, 'Sony');
 		mainPage.clickSelectedComputer(pcNameTwo);
@@ -41,7 +38,7 @@ describe('Test Suite for Computer database site', function() {
 	});
 
 	it('should be possible to delete computer', function() {
-		var pcNameThree = 'AAAAA my pc for removal';
+		const pcNameThree = 'AAAAA my pc for removal';
 
 		mainPage.createComputer(pcNameThree, 'Sony');
 		mainPage.deleteComputer(pcNameThree);
@@ -50,7 +47,7 @@ describe('Test Suite for Computer database site', function() {
 	});
 
 	it('check filter by computer', function() {
-		var pcNameFour = "ZAAAA my pc for filter";
+		const pcNameFour = "ZAAAA my pc for filter";
 
 		mainPage.createComputer(pcNameFour, 'Sony');
 		mainPage.filterComputer(pcNameFour);

@@ -3,20 +3,20 @@ info.txt
 Create automation framework
 
 Resource:
-- http://computer-database.herokuapp.com/computers
++ http://computer-database.herokuapp.com/computers
 
 Cover next functionality:
-- Add computer
-- Update computer
-- Delete computer
-- Check “filter by computer”
++ Add computer
++ Update computer
++ Delete computer
++ Check “filter by computer”
 
 Use following tools:
-- Npm​ as the package manager for JavaScript
-- Protractor (latest)​ as end-to-end test framework
++ Npm​ as the package manager for JavaScript
++ Protractor (latest)​ as end-to-end test framework
 - Cucumberjs (1.x)​ as tool for running automated tests
-- Github​ or bitbucket​ share your Git repositories
-- Use page object pattern
++ Github​ or bitbucket​ share your Git repositories
++ Use page object pattern
 
 As plus (not mandatory):
 - Create more automation to cover move functionality (~9 more test cases)

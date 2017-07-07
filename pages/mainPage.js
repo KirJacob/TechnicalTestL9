@@ -15,8 +15,8 @@ module.exports = {
 		deleteBtn: element(by.css('.danger'))
 	},
 	createComputer: function(name, company) {
-		var pct = this.pcTable;
-		var pcf = this.pcForm;
+		let pct = this.pcTable;
+		let pcf = this.pcForm;
 		pct.addComputerBtn.click();
 		pcf.nameFld.sendKeys(name);
 		pcf.introducedFld.sendKeys("2017-07-07");
@@ -24,19 +24,19 @@ module.exports = {
 		pcf.saveBtn.click();
 	},
 	verifyComputerPresent: function(name, count) {
-		var countElement = element.all(by.cssContainingText('a', name)).count();
+		let countElement = element.all(by.cssContainingText('a', name)).count();
 		expect(countElement).toEqual(count);
 	},
 	clickSelectedComputer: function(name) {
 		element(by.cssContainingText('a', name)).click();		
 	},
 	deleteComputer: function(name) {
-		var pcf = this.pcForm;
+		let pcf = this.pcForm;
 		element(by.cssContainingText('a', name)).click();	
 		pcf.deleteBtn.click();
 	},
 	filterComputer: function(name){
-		var pct = this.pcTable;
+		let pct = this.pcTable;
 		pct.searchFld.sendKeys(name);
 		pct.filterBtn.click();
 	}

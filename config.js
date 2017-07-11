@@ -12,7 +12,7 @@ exports.config = {
   ],
   baseURL: 'http://computer-database.herokuapp.com/computers',
   cucumberOpts: {
-    require: './features/step_definitions/my_step_definitions.js',
+    require: './step_definitions/*.js',
     tags: false,
     format: 'pretty',
     profile: false,

@@ -1,8 +1,10 @@
 // CUCUMBER AND CHAI VERSION
 
 var chai = require('chai');
-var utils = require('../../utils.js');
-var mainPage = require('../../pages/mainPage.js');
+var utils = require('../utils.js');
+var generalPage = require('../pages/generalPage.js');
+var formPage = require('../pages/formPage.js');
+var tablePage = require('../pages/tablePage.js');
 var chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiAsPromised);
@@ -19,9 +21,15 @@ module.exports = function() {
     });
 
 	this.When(/^I create new computer "([^"]*)" with company "([^"]*)"$/, function(name, company) {
-		mainPage.createComputer(name, company);
+		generalPage.createComputer(name, company);
 		this.pcName = name;
 		this.alertMsgTxt = 'Done! Computer ' + name + ' has been created';
+	});
+
+	this.When(/^I create new computer "([^"]*)"$/, function(name) {
+		tablePage.addComputerBtn.click();
+		formPage.nameFld.sendKeys(name);
+		formPage.saveBtn.click();
 	});
 
 	this.Then(/^I should see computer "([^"]*)" in the table (\d+) times$/, function(name,cnt) {
@@ -30,24 +38,29 @@ module.exports = function() {
 	});
 
 	this.Then(/^I should see message about creation$/, function() {
-		expect(mainPage.pcTable.alertMsg.getText())
+		expect(tablePage.alertMsg.getText())
 			.to.eventually.equal(this.alertMsgTxt);
 	});
 
 	this.When(/^I remove computer$/, function() {
-		mainPage.deleteComputer(this.pcName);
+		generalPage.deleteComputer(this.pcName);
+	});
+
+	this.When(/^I remove computer "([^"]*)"$/, function (name) {
+		element(by.cssContainingText('a', name)).click();	
+		formPage.deleteBtn.click();
 	});
 
 	this.When(/^I update computer "([^"]*)" to "([^"]*)"$/, function(name, newName) {
-		mainPage.clickSelectedComputer(name);
-		mainPage.pcForm.nameFld.clear();
-		mainPage.pcForm.nameFld.sendKeys(newName);
-		mainPage.pcForm.saveBtn.click();
+		generalPage.clickSelectedComputer(name);
+		formPage.nameFld.clear();
+		formPage.nameFld.sendKeys(newName);
+		formPage.saveBtn.click();
 		this.pcName = newName;
 	});
 
 	this.When(/^I filter computer "([^"]*)"$/, function(name) {
-		mainPage.filterComputer(name);
+		generalPage.filterComputer(name);
+		this.pcName = name;
 	});
-
 }

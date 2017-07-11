@@ -1,5 +1,5 @@
-#features/test.feature
-Feature: Running Cucumber with Protractor
+# #features/test.feature
+Feature: Basic Tests for Computers
     As a non registred user of site "http://computer-database.herokuapp.com/"
     I should be able add, remove, update and filter Computers in the table
 
@@ -29,3 +29,4 @@ Feature: Running Cucumber with Protractor
         When I create new computer "ZAAAA my pc for filter" with company "Sony"
         When I filter computer "ZAAAA my pc for filter"
         Then I should see computer "ZAAAA my pc for filter" in the table 1 times
+        When I remove computer
